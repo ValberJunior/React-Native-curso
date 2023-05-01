@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, Text, View, FlatList } from 'react-native';
+import { StatusBar, View, FlatList } from 'react-native';
 import Item from './item';
 
 const ServicesData = [
@@ -27,7 +27,6 @@ export default function Services(){
     return (
         <View>
             <StatusBar/>
-            <Text> Serviços </Text>
             <FlatList 
                 data={ServicesData}
                 renderItem={({item})=><Item {...item}/>}
