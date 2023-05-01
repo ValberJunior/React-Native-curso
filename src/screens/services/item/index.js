@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import { Button, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
 import styles from './styles';
 import { ButtonComponent, FieldComponent } from '../../../components';
 
-export default function Item({name, price, description}){
-   
+export default function Item({ name, price, description }) {
+
     const [amount, setAmount] = useState(1)
 
-   return <>
+    return <>
         <View style={styles.info}>
             <Text style={styles.name}>
-                { name }
+                {name}
             </Text>
             <Text style={styles.description}>
-                { description }
+                {description}
             </Text>
             <Text style={styles.price}>
-                { price }
+                {price}
             </Text>
         </View>
         <View style={styles.cart}>
@@ -33,12 +33,12 @@ export default function Item({name, price, description}){
                     <Text style={styles.description}>Preço:</Text>
                     <Text style={styles.price}>0</Text>
                 </View>
-                <ButtonComponent 
+                <ButtonComponent
                     value="Add"
-                    action={()=>{}}
+                    action={() => { }}
                 />
             </View>
         </View>
-        <View style={styles.divider}/>
+        <View style={styles.divider} />
     </>
 }
