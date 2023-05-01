@@ -11,7 +11,12 @@ export default function Item({ name, price, description }) {
         <View style={styles.info}>
             <Text style={styles.name}>{name}</Text>
             <Text style={styles.description}>{description}</Text>
-            <Text style={styles.price}>{price}</Text>
+            <Text style={styles.price}>
+              {Intl.NumberFormat('ptbr',{
+                style: 'currency',
+                currency: 'BRL'
+              }).format(price)}
+            </Text>
         </View>
         <View style={styles.cart}>
             <View>
