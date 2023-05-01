@@ -5,7 +5,17 @@ import { ButtonComponent, FieldComponent } from '../../../components';
 
 export default function Item({ name, price, description }) {
 
-    const [amount, setAmount] = useState(1)
+    const [amount, setAmount] = useState(1);
+    const [ total, setTotal] = useState(price);
+
+    const updateTotalQuantity = (newAmount) => {
+        setAmount(newAmount);
+        calcTotal(newAmount);
+    }
+
+    const calcTotal = (newAmount) => {
+        setTotal(newAmount * price)
+    }
 
     return <>
         <View style={styles.info}>
@@ -24,13 +34,18 @@ export default function Item({ name, price, description }) {
                     <Text style={styles.description}>Quantidade:</Text>
                     <FieldComponent
                         value={amount}
-                        addCart={setAmount}
+                        addCart={updateTotalQuantity}
                         styles={styles.amount}
                     />
                 </View>
                 <View style={styles.price}>
-                    <Text style={styles.description}>Preço:</Text>
-                    <Text style={styles.price}>0</Text>
+                    <Text style={styles.description}>Total:</Text>
+                    <Text style={styles.price}>
+                        {Intl.NumberFormat('ptbr',{
+                            style: 'currency',
+                            currency: 'BRL'
+                        }).format(total)}
+                    </Text>
                 </View>
             </View>
             <ButtonComponent
