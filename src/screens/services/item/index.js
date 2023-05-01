@@ -9,15 +9,9 @@ export default function Item({ name, price, description }) {
 
     return <>
         <View style={styles.info}>
-            <Text style={styles.name}>
-                {name}
-            </Text>
-            <Text style={styles.description}>
-                {description}
-            </Text>
-            <Text style={styles.price}>
-                {price}
-            </Text>
+            <Text style={styles.name}>{name}</Text>
+            <Text style={styles.description}>{description}</Text>
+            <Text style={styles.price}>{price}</Text>
         </View>
         <View style={styles.cart}>
             <View>
@@ -33,11 +27,11 @@ export default function Item({ name, price, description }) {
                     <Text style={styles.description}>Preço:</Text>
                     <Text style={styles.price}>0</Text>
                 </View>
-                <ButtonComponent
-                    value="Add"
-                    action={() => { }}
-                />
             </View>
+            <ButtonComponent
+                value="Add"
+                action={() => { }}
+            />
         </View>
         <View style={styles.divider} />
     </>
