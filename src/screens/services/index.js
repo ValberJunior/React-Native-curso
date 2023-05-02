@@ -1,6 +1,7 @@
 import React from 'react';
-import { StatusBar, View, FlatList } from 'react-native';
+import { StatusBar, FlatList, View, KeyboardAvoidingView, Platform } from 'react-native';
 import Item from './item';
+import globalStyles from '../../styles/global';
 
 const ServicesData = [
     {
@@ -25,14 +26,24 @@ const ServicesData = [
 
 export default function Services(){
     return (
-        <View>
-            <StatusBar/>
-            <FlatList 
-                data={ServicesData}
-                renderItem={({item})=><Item {...item}/>}
-                removeClippedSubviews={false} // para evitar que o teclado tenha algum comportamento errado
-                keyExtractor={({id}) => String(id)}
-            />
-       </View>
+        // KeyboardAvoingView serve para que o conteúdo se adeque ao teclado quando ele é expandido, nele devemos passar as configs segundo a plataforma desenvolvida, e deve estar no topo da arvore de renderização***
+        <KeyboardAvoidingView 
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={globalStyles.preencher}
+        >
+            {/* View é a "div do react-native" */}
+            <View styles={globalStyles.preencher}>
+                {/* StatusBar é um componente auxiliar do device Android para garantir que o contéudo seja renderizado na tela sem sofrer com o notch ou com telas diferentes */}
+                <StatusBar/>
+                    {/** FlatList é o componente que lista os items no react-native */}
+                    <FlatList 
+                        data={ServicesData}
+                        renderItem={({item})=><Item {...item}/>}
+                        removeClippedSubviews={true} // para evitar que o teclado tenha algum comportamento errado
+                        keyExtractor={({id}) => String(id)}
+                    />
+                
+        </View>
+       </KeyboardAvoidingView>
     )
 }

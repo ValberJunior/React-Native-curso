@@ -56,7 +56,7 @@ export default function Item({ name, price, description }) {
                 </View>
             </View>
             <ButtonComponent
-                value="Add"
+                value="Adicionar ao Carrinho"
                 action={() => { }}
             />
         </View>}
