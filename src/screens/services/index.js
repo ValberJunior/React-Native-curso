@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 import Item from './item';
-import DefaultPage from '../../components/defaultPage';
+import { DefaultPage } from '../../components';
 
 const ServicesData = [
     {
