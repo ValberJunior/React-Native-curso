@@ -6,7 +6,7 @@ export default function DefaultPage ({children}){
     return (
         // KeyboardAvoingView serve para que o conteúdo se adeque ao teclado quando ele é expandido, nele devemos passar as configs segundo a plataforma desenvolvida, e deve estar no topo da arvore de renderização***
         <KeyboardAvoidingView
-            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            behavior={Platform.OS == "ios" ? "padding" : "height"}
             style={globalStyles.preencher}
         >
             {/* View é a "div do react-native" */}
