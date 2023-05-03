@@ -1,7 +1,7 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 import Item from './item';
-import { DefaultPage } from '../../components';
+import { DefaultPage, StatusCart } from '../../components';
 
 const ServicesData = [
     {
@@ -28,8 +28,14 @@ const ServicesData = [
 ]
 
 export default function Cart() {
+    // Nesse caso iremos fazer um reduce com o nosso objeto desconstruído
+    // no reduce teremos uma função que será oq vai acontecer em cada laço da repetição e o argumento de valor inicial, que iremos começar com 0.
+    // sum é a variável que será acrescida durante o loop
+    const totalValue = ServicesData.reduce((sum,{price, amount})=> sum + (price * amount),0)
+
     return (
         <DefaultPage>
+            <StatusCart total={totalValue}/>
             {/** FlatList é o componente que lista os items no react-native */}
             <FlatList
                 data={ServicesData}
