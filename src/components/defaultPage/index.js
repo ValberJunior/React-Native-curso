@@ -1,6 +1,8 @@
 import React from "react";
 import { KeyboardAvoidingView, Platform, View, StatusBar } from "react-native";
-import globalStyles from '../../styles/global';
+import globalStyles, { cores } from '../../styles/global';
+import styles from './styles';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function DefaultPage ({children}){
     return (
@@ -12,7 +14,9 @@ export default function DefaultPage ({children}){
             {/* View é a "div do react-native" */}
             <View styles={globalStyles.preencher}>
                 {/* StatusBar é um componente auxiliar do device Android para garantir que o contéudo seja renderizado na tela sem sofrer com o notch ou com telas diferentes */}
-                <StatusBar/>
+                <StatusBar
+                  backgroundColor={cores.roxo} 
+                />
                 {children}
             </View>
         </KeyboardAvoidingView>
